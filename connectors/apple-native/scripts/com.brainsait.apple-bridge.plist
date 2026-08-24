@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.brainsait.apple-bridge</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>__UV_PATH__</string>
+        <string>--directory</string>
+        <string>__BRIDGE_DIR__</string>
+        <string>run</string>
+        <string>brainsait-apple-bridge</string>
+        <string>--transport</string>
+        <string>http</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>APPLE_BRIDGE_TOKEN</key>
+        <string>__TOKEN__</string>
+        <key>APPLE_BRIDGE_PORT</key>
+        <string>8848</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/brainsait-apple-bridge.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/brainsait-apple-bridge.err</string>
+</dict>
+</plist>

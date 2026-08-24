@@ -131,6 +131,30 @@ Simulate a deployment to a specified platform and environment.
 brainsait deploy --platform cloudflare --env production
 ```
 
+## Native Connectors
+
+### Apple Shortcuts ↔ Automator Bridge (MCP)
+
+The repo ships a native MCP connector ([`connectors/apple-native`](connectors/apple-native/))
+that bridges Apple Shortcuts and Automator to Claude — usable locally from Claude
+Desktop/Claude Code (stdio) or from claude.ai as a **Custom Connector** (streamable
+HTTP behind a tunnel). It can list and run Shortcuts, run and introspect Automator
+workflows, and chain both apps into a single pipeline with `run_bridge_pipeline`.
+
+```bash
+# Local (stdio, for Claude Desktop / Claude Code)
+brainsait connector apple
+
+# Remote (HTTP, for claude.ai Custom Connectors)
+export APPLE_BRIDGE_TOKEN="$(openssl rand -hex 24)"
+brainsait connector apple --transport http --port 8848
+cloudflared tunnel --url http://127.0.0.1:8848
+```
+
+See [connectors/apple-native/README.md](connectors/apple-native/README.md) for
+setup, security model (allowlists, AppleScript gate, token auth), and the launchd
+installer.
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit issues or pull requests.

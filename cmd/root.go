@@ -26,6 +26,7 @@ func init() {
     rootCmd.AddCommand(codeCmd) 
     rootCmd.AddCommand(reviewCmd)
     rootCmd.AddCommand(deployCmd)
+    rootCmd.AddCommand(connectorCmd)
 }
 
 func Execute() error {
